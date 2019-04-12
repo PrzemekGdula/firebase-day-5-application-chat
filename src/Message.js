@@ -17,13 +17,13 @@ const Message = (props) => (
         >
             <ListItemAvatar>
                 <Avatar
-                    alt={''}
-                    src={''}
+                    alt={props.message.author.displayName}
+                    src={props.message.author.photoURL}
                 />
             </ListItemAvatar>
             <ListItemText
-                primary={''}
-                secondary={''}
+                primary={props.message.author.displayNam}
+                secondary={props.message.author.photoURL}
             />
             <ListItemSecondaryAction>
                 <IconButton aria-label="Comments">

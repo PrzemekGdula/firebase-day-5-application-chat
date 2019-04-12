@@ -1,5 +1,9 @@
 import React from 'react'
+
+import List from '@material-ui/core/List'
+
 import Message from './Message';
+
 
 const MessagesList = (props) => {
     const messagesArray = (
@@ -13,7 +17,7 @@ const MessagesList = (props) => {
     )
 
     return (
-        <div>
+        <List>
             {
                 messagesArray.map(
                     message => (
@@ -24,7 +28,7 @@ const MessagesList = (props) => {
                     )
                 )
             }
-        </div>
+        </List>
     )
 }
 
