@@ -27,7 +27,9 @@ const Message = (props) => (
                 secondary={props.message.text}
             />
             <ListItemSecondaryAction>
-                <IconButton>
+                <IconButton
+                    onClick={() => props.toggleFavorite(props.message)}
+                >
                     {
                         (
                             props.message.isFav &&
