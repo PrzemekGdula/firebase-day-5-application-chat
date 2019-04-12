@@ -22,8 +22,8 @@ const Message = (props) => (
                 />
             </ListItemAvatar>
             <ListItemText
-                primary={props.message.author.displayNam}
-                secondary={props.message.author.photoURL}
+                primary={props.message.author.displayName}
+                secondary={props.message.text}
             />
             <ListItemSecondaryAction>
                 <IconButton aria-label="Comments">

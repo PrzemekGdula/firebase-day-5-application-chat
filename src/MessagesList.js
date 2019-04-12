@@ -14,6 +14,7 @@ const MessagesList = (props) => {
                     key,
                 })
             )
+            .reverse()
     )
 
     return (

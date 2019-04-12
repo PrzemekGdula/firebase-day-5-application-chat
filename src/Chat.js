@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { database } from './firebaseConf'
+import { auth, database } from './firebaseConf'
 
 import MessagesList from './MessagesList'
 import NewMessageForm from './NewMessageForm'
@@ -28,17 +28,39 @@ class Chat extends React.Component {
         newMessageText: event.target.value,
     })
 
+    onMessageSent = () => {
+        database.ref('JFDDL7/chat').push({
+            text: this.state.newMessageText,
+            date: Date.now(),
+            author: {
+                displayName: auth.currentUser.displayName,
+                email: auth.currentUser.email,
+                photoURL: auth.currentUser.photoURL,
+            }
+        })
+            .then(
+                () => {
+                    this.setState({
+                        newMessageText: '',
+                    })
+                }
+            )
+    }
+
     render() {
         return (
             <div>
                 <MessagesList
-                    messages={this.state.messages} />
+                    messages={this.state.messages}
+                />
                 <NewMessageForm
                     newMessageText={this.state.newMessageText}
                     onNewMessageTextChanged={this.onNewMessageTextChanged}
+                    onMessageSent={this.onMessageSent}
                 />
             </div>
         )
     }
 }
+
 export default Chat
