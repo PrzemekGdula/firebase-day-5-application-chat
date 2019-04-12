@@ -4,8 +4,7 @@ import { auth } from './firebaseConf'
 
 import List from '@material-ui/core/List'
 
-import Message from './Message';
-
+import Message from './Message'
 
 const MessagesList = (props) => {
     const messagesArray = (
@@ -23,7 +22,7 @@ const MessagesList = (props) => {
         message => message.isFav && message.isFav[auth.currentUser.uid]
     )
 
-    const showedMessages = (
+    const showedMessage = (
         props.isFavFilterActive ?
             filteredMessages
             :
@@ -33,7 +32,7 @@ const MessagesList = (props) => {
     return (
         <List>
             {
-                showedMessages.map(
+                showedMessage.map(
                     message => (
                         <Message
                             key={message.key}

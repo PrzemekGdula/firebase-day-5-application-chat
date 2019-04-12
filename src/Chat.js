@@ -71,7 +71,6 @@ class Chat extends React.Component {
         isFavFilterActive: !this.state.isFavFilterActive,
     })
 
-
     render() {
         return (
             <div>
