@@ -1,5 +1,6 @@
-
 import React from 'react'
+
+import Button from '@material-ui/core/Button'
 
 class Auth extends React.Component {
     state = {
@@ -13,7 +14,15 @@ class Auth extends React.Component {
                     this.state.isUserLoggedIn ?
                         this.props.children
                         :
-                        <div></div>
+                        <div>
+                            <Button
+                                variant={'contained'}
+                                color={'secondary'}
+                            >
+                                LOGIN BY GOOGLE
+              </Button>
+
+                        </div>
                 }
             </div>
         )
