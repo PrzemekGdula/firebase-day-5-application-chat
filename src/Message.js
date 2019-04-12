@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton'
 
 import StarBorderIcon from '@material-ui/icons/StarBorder'
 import StarIcon from '@material-ui/icons/Star'
+import { auth } from './firebaseConf'
 
 const Message = (props) => (
     <div>
@@ -26,9 +27,16 @@ const Message = (props) => (
                 secondary={props.message.text}
             />
             <ListItemSecondaryAction>
-                <IconButton aria-label="Comments">
-                    <StarBorderIcon />
-                    <StarIcon />
+                <IconButton>
+                    {
+                        (
+                            props.message.isFav &&
+                            props.message.isFav[auth.currentUser.uid]
+                        ) ?
+                            <StarIcon />
+                            :
+                            <StarBorderIcon />
+                    }
                 </IconButton>
             </ListItemSecondaryAction>
         </ListItem>
